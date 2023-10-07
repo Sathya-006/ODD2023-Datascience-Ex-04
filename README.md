@@ -177,6 +177,5 @@ sns.heatmap(numeric_cols.corr(),annot = True)
 ~~~
 ![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/e2182cb7-3a4d-41d8-946d-8378f50451a8)
 ~~~
-
 # RESULT
-Thus we have read the given data and performed the multivariate analysis with different types of plots
+   Thus we have read the given data and performed the multivariate analysis with different types of plots
