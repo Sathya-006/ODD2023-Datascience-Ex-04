@@ -124,41 +124,59 @@ sns.scatterplot(x = 'Salary',y='Age',data = numeric_cols)
 ~~~
 sns.scatterplot(x = 'Experience_Years',y='Salary',data = numeric_cols)
 ~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/32e70c12-5e2b-4fa7-9ad2-4d33f96654d4)
 ~~~
 sns.scatterplot(x = 'Experience_Years',y='Age',data = numeric_cols)
 ~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/c2781fbb-e7e4-4e45-bc68-ca5e9f75993e)
 ~~~
 sns.heatmap(numeric_cols.corr(),annot = True)
 ~~~
-![Uploading image.png…]()
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/54e8b103-5db7-49a0-aeb8-07019664e15b)
+~~~
+from google.colab import files
+uploaded = files.upload()
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/10f9ae4c-56ec-4802-a399-8fa2918ac5e2)
+~~~
+df = pd.read_csv('SuperStore.csv')
+df
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/1b69182d-d5e0-44ab-9e1c-54514dda99f7)
+~~~
+df.isnull().sum()
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/97149d13-817a-4bdf-80ad-bd6727829829)
+~~~
+df.dropna()
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/d9416b09-15ad-49ba-9282-23c3dcbd6719)
+~~~
+df.dtypes
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/149f971b-20ca-4d67-968d-21905e13d0a2)
+~~~
+numeric_cols = df.select_dtypes(include=[int,float])
+q1 = numeric_cols.quantile(0.25);
+q3 = numeric_cols.quantile(0.75);
+iqr = q3 - q1
+iqr
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/38becaeb-bfed-4a89-9fba-ceafb0b0cc1f)
+~~~
+low = q1 - 1.5*iqr
+high = q1 + 1.5*iqr
+numeric_cols = numeric_cols[(numeric_cols >= low) & (numeric_cols <= high)]
+~~~
+~~~
+sns.boxplot(numeric_cols)
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/b65ef01a-c174-4f35-af17-4a890a3129f9)
+~~~
+sns.heatmap(numeric_cols.corr(),annot = True)
+~~~
+![image](https://github.com/Sathya-006/ODD2023-Datascience-Ex-04/assets/121661327/e2182cb7-3a4d-41d8-946d-8378f50451a8)
 ~~~
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# RESULT
+Thus we have read the given data and performed the multivariate analysis with different types of plots
